@@ -21,7 +21,10 @@
 
 
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+ <!--  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  
+  <TreeBrowser :node="root" />
+
 
 
 
@@ -29,12 +32,38 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import TreeBrowser from './components/TreeBrowser.vue'
 
 export default {
+ 
   name: 'App',
+  data: function() {return {
+      root: {
+        name: '/',
+        children: [
+          {
+            name: 'music',
+            children: [
+              {
+                name: 'song.mp3'
+              }
+            ]
+          },
+          {
+            name: 'workspace',
+            children: [
+              {
+                name: 'source.js'
+              }
+            ]
+          }
+        ]
+      }
+  }},
   components: {
-    HelloWorld
+    
+    TreeBrowser
   }
 }
 </script>

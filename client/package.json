@@ -9,8 +9,11 @@
     "compile:sass": "node-sass sass/main.scss css/style.css"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "cors": "^2.8.5",
+    "vue": "^3.2.13",
+    "vue3-router-tree": "^0.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

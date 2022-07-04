@@ -1,71 +1,37 @@
 
 <template>
-<header class="header">
-
-</header>
-<div class="billboard">
-<h1 class="heading-primary">
-  <span class="heading-primary-main">Евростройпроект</span>
-  <span class="heading-primary-sub">Среда общих данных проекта</span>
-</h1>
+<div id="app">
+ 
+  <li v-for="item in infos" v-bind:key="item.Prefix">
+  {{ item.Prefix }}
+  </li>
 </div>
-<div class="data-area">
-<div class="row">
-  <div class="col-n-n"></div>
-  <div class="col-n-n"></div>
-</div>
-</div>
-<footer class="footer">
-
-</footer>
-
-
-  <img alt="Vue logo" src="./assets/logo.png">
- <!--  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  
-  <TreeBrowser :node="root" />
-
-
-
-
 
 </template>
 
 <script>
+// https://v2.vuejs.org/v2/examples/tree-view.html
+//https://vuejs.org/examples/#tree
 
-import TreeBrowser from './components/TreeBrowser.vue'
-
+import axios from 'axios'
+//import Vue3RouterTree from "vue3-router-tree"
 export default {
  
   name: 'App',
-  data: function() {return {
-      root: {
-        name: '/',
-        children: [
-          {
-            name: 'music',
-            children: [
-              {
-                name: 'song.mp3'
-              }
-            ]
-          },
-          {
-            name: 'workspace',
-            children: [
-              {
-                name: 'source.js'
-              }
-            ]
-          }
-        ]
-      }
+  data: function() {
+    return {
+      infos: null,
+      
   }},
   components: {
     
-    TreeBrowser
+  },
+  mounted() {
+    axios.get('http://localhost:4005/list/esp').then( (res)=>{console.log(res);this.infos = res.data.CommonPrefixes})
+    
   }
 }
+
 </script>
 
 <style>

@@ -13,3 +13,6 @@ nodejs express  APIs
             upload
             get
             getObjectMeta
+
+Nodejs sdk
+// https://github.com/yandex-cloud/nodejs-sdk/blob/master/examples/storage.ts
